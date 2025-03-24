@@ -5,14 +5,19 @@ import (
 )
 
 const englishHelloPrefix = "Hello, "
+const spanishHelloPrefix = "Hola, "
+var language_map = map[string]string{
+	"spanish": spanishHelloPrefix,
+	"english": englishHelloPrefix,
+}
 
-func Hello(name string) string {
+func Hello(name, language string) string {
 	if name == "" {
 		name = "World"
 	}
-	return englishHelloPrefix + name
+	return language_map[language] + name
 }
 
 func main() {
-	fmt.Println(Hello("world"))
+	fmt.Println(Hello("world", ""))
 }
